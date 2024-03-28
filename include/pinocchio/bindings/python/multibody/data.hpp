@@ -173,6 +173,8 @@ namespace pinocchio
         .ADD_DATA_PROPERTY(dq_after,"Generalized velocity after the impact.")
         .ADD_DATA_PROPERTY(staticRegressor,"Static regressor.")
         .ADD_DATA_PROPERTY(jointTorqueRegressor,"Joint torque regressor.")
+
+        .ADD_DATA_PROPERTY(kinematic_hessians,"Joint Kinematic Hessians.")
         
         .def(bp::self == bp::self)
         .def(bp::self != bp::self)

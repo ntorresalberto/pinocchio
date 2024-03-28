@@ -113,9 +113,21 @@ namespace pinocchio
               "\tmodel: model of the kinematic tree\n"
               "\tdata: data related to the model\n");
 
+      bp::def("computeJointKinematicHessians",
+          &computeJointKinematicHessians<double, 0, JointCollectionDefaultTpl,
+                                         VectorXd>,
+          bp::args("model", "data", "q"),
+          "Computes the full model Jacobian, i.e. the stack of all the "
+          "motion subspaces expressed in the coordinate world frame.\n"
+          "The result is accessible through data.J. This function computes "
+          "also the forward kinematics of the model.\n\n"
+          "Parameters:\n"
+          "\tmodel: model of the kinematic tree\n"
+          "\tdata: data related to the model\n"
+          "\tq: the joint configuration vector (size model.nq)\n",
+          bp::return_value_policy<bp::return_by_value>());
+
     }
-    
-    
-    
+
   } // namespace python
 } // namespace pinocchio
